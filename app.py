@@ -10,6 +10,9 @@ uploaded = st.file_uploader("Upload a document image", type=["png", "jpg", "jpeg
 
 if uploaded:
     data = uploaded.getvalue()
+
+    Path("sample_data").mkdir(exist_ok=True)
+
     temp = Path("sample_data") / uploaded.name
     temp.write_bytes(data)
 
